@@ -1,11 +1,24 @@
 \documentclass{article}
-\usepackage[margin=1in]{geometry}
+\usepackage{indentfirst}
 \usepackage{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage[english]{babel}
+\usepackage[autostyle, english=american]{csquotes}
+\usepackage{apacite}
+\usepackage{etoolbox}
+\MakeOuterQuote{"}
+
+% Hack to turn off URLs in citations. 
+% https://tex.stackexchange.com/questions/425392/how-remove-links-from-apacite
+\renewenvironment{APACrefURL}[1][]{}{}
+\AtBeginEnvironment{APACrefURL}{\renewcommand{\url}[1]{}}
+\renewcommand{\doiprefix}{doi:~\kern-1pt}
 
 \title{Israel IQP Project Proposal}
 \author{Evan Goldstein, Valeria Kopper, Christopher Myers, Zach Zlotnick}
 \date{November 2018}
-\onehalfspacing
+%\onehalfspacing
 
 \begin{document}
 
@@ -17,9 +30,7 @@
 \renewcommand\abstractname{Summary} % Just changes the name from "abstract" to "summary"
 \begin{abstract}
     \singlespacing
-    This short section at the top should be an executive summary of the rest of the document, something like an
-    abstract. It should be very short (one paragraph at most) and extremely concise, covering the proposal at a
-    very high level. It may be appropriate to put sponsor acknowledgments here if they're needed.
+ This short section at the top should be an executive summary of the rest of the document, something like an abstract. It should be very short (one paragraph at most) and extremely concise, covering the proposal at a very high level. It may be appropriate to put sponsor acknowledgments here if they're needed.
 \end{abstract}
 
 \tableofcontents
@@ -30,23 +41,18 @@
 
 \section{Introduction}
 
-The introduction section should give a basic overview of the sponsor's requirements and what the current situation
-is. More details should be given in the background section, this should only be 1-2 pages long.
+The introduction section should give a basic overview of the sponsor's requirements and what the current situation is. More details should be given in the background section, this should only be 1-2 pages long.
 
 \newpage
 \section{Background}
 
-The background section should cover all relevant background information, i.e. the current situation in Eilat.
-It's a good idea to bring in as much detail as possible and consider all possible viewpoints. This section should
-be about 6-8 pages.
+The background section should cover all relevant background information, i.e. the current situation in Eilat. It's a good idea to bring in as much detail as possible and consider all possible viewpoints. This section should be about 6-8 pages.
 
 \subsection{Eilat, transportation, \& electric cars}
-Discussion of Eilat's current transportation system, some basic stats on gasoline powered vs. electric cars,
-and maybe a quick mention of what Eilat wants that ratio up to and when they want it by.
+Discussion of Eilat's current transportation system, some basic stats on gasoline powered vs. electric cars, and maybe a quick mention of what Eilat wants that ratio up to and when they want it by.
 
 \subsection{Foreign oil}
-Information on Israel's reliance on foreign oil imports and what effect that has on their economy, independence,
-and diplomatic relations.
+Information on Israel's reliance on foreign oil imports and what effect that has on their economy, independence, and diplomatic relations.
 
 \subsection{Emissions}
 Current emissions info for Eilat, Israel as a whole, and the world, all with respect to transportation.
@@ -60,8 +66,7 @@ Overview of V2G charging, what electric charging stations are and look like, wha
 \section{Methods}
 Information about what we're actually going to \textit{do} in Israel. This should be 6-8 pages long.
 
-Remember: This should describe the methods of our work in Israel will be, \textbf{\textit{not}} the actual work itself. That is, don't do research on the power grid in Eilat and put it here, for example, explain what sorts of 
-things we'll do in Israel to find that information. E.g. surveys, interviews, urban exploration, you name it.
+Remember: This should describe the methods of our work in Israel will be, \textbf{\textit{not}} the actual work itself. That is, don't do research on the power grid in Eilat and put it here, for example, explain what sorts of things we'll do in Israel to find that information. E.g. surveys, interviews, urban exploration, you name it.
 
 \subsection{Technology investigations}
 Details on our planned investigation into the technical side of things. 
@@ -70,42 +75,32 @@ Details on our planned investigation into the technical side of things.
 How are we going to figure out what effect will electric cars have on Eilat's power grid? On Israel's power grid? 
 
 \subsubsection{Power usage}
-How are we going to figure out what kind of power a city running on electric ars will draw? This is more
-complicated than it may sound, we might have to look into the amount that the average driver drives, the makeup
-of Eilat's workforce (commuters, residents), etc.
+How are we going to figure out what kind of power a city running on electric ars will draw? This is more complicated than it may sound, we might have to look into the amount that the average driver drives, the makeup of Eilat's workforce (commuters, residents), etc.
 
 \subsubsection{Electric car material requirements}
-How are we going to figure out whether the demand for electric cars can be satisfied? How will we figure out
-whether Eilat and Israel as a whole can meet that demand?
+How are we going to figure out whether the demand for electric cars can be satisfied? How will we figure out whether Eilat and Israel as a whole can meet that demand?
 
 This section might need to be deleted.
 
 \subsection{Social effects study}
-We should detail how we'll collect information on the social effects of the proposed changes, and how we'll
-analyze that data to draw our conclusions.
+We should detail how we'll collect information on the social effects of the proposed changes, and how we'll analyze that data to draw our conclusions.
 
 \subsubsection{Oil imports}
-The background section describes what effect foreign oil has \textit{now}, what about in the future? How are we
-going to determine whether oil imports decrease or increase? How will we determine the effect that'll have on
-the Israel economy?
+The background section describes what effect foreign oil has \textit{now}, what about in the future? How are we going to determine whether oil imports decrease or increase? How will we determine the effect that'll have on the Israel economy?
 
 \subsubsection{"Range anxiety"}
-How will we determine if people\textit{want} to switch over to electric cars? How will we determine what sorts
-of effects that'll have on people (e.g. domestic tourism)
+How will we determine if people\textit{want} to switch over to electric cars? How will we determine what sorts of effects that'll have on people (e.g. domestic tourism)
 
 \subsubsection{Foreign relations}
-How will we determine what, if any, effects there will be on foreign relations once the transition to electric
-cars is complete? Consider foreign oil imports.
+How will we determine what, if any, effects there will be on foreign relations once the transition to electric cars is complete? Consider foreign oil imports.
 
 \subsection{More?}
 
-The above might be too broad, it might be too narrow. Maybe we need more sections or fewer.
+The above might be too broad, it might be too narrow. Maybe we need more sections or fewer. \cite{Cheslow2011BetterCountry}
 
-The bracketed number at the end is an example of a citation. \cite{demo:1}
-
-% Bibliography -- all automatically managed in IEEE style
+% Bibliography -- all automatically managed in APA style
 \newpage
-\bibliographystyle{ieeetr}
-\bibliography{references}
+\bibliographystyle{apacite}
+\bibliography{refs}
 
 \end{document}
