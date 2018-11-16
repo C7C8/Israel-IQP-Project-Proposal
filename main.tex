@@ -1,36 +1,29 @@
-\documentclass{article}
-\usepackage{indentfirst}
-\usepackage{setspace}
-\usepackage[utf8]{inputenc}
-\usepackage[margin=1in]{geometry}
-\usepackage[english]{babel}
-\usepackage[autostyle, english=american]{csquotes}
-\usepackage{apacite}
-\usepackage{etoolbox}
-\MakeOuterQuote{"}
-
-% Hack to turn off URLs in citations. 
+\documentclass{article}                         % Make it an article
+\usepackage{indentfirst}                       % All paragraphs indented
+\usepackage{setspace}                           % For 1.5 spacing
+\usepackage[hidelinks]{hyperref}      % Make table of contents clickable
+\usepackage[margin=1in]{geometry} % 1 inch margin
+\usepackage[english]{babel}                     % For "fancy" quotes
+\usepackage[autostyle, english=american]{csquotes} % Same
+\usepackage{apacite}                            % Use APA citations
+\usepackage{etoolbox}                           % Misc
+\MakeOuterQuote{"}                              % For fancy quotes
+% Turn off URLs in citations. 
 % https://tex.stackexchange.com/questions/425392/how-remove-links-from-apacite
 \renewenvironment{APACrefURL}[1][]{}{}
 \AtBeginEnvironment{APACrefURL}{\renewcommand{\url}[1]{}}
-\renewcommand{\doiprefix}{doi:~\kern-1pt}
 
 \title{Israel IQP Project Proposal}
-\author{Evan Goldstein, Valeria Kopper, Christopher Myers, Zach Zlotnick}
+\author{Evan Goldstein, Valeria Kopper, Christopher Myers, Zachary Zlotnick}
 \date{November 2018}
-%\onehalfspacing
 
 \begin{document}
-
-% First page basic stuff: title, change numbering style for this page only, table of contents, executive
-% summary, etc. All of this will be on its own page so it's cleanly separated from the actual content
 \pagenumbering{roman}
 \maketitle
 
-\renewcommand\abstractname{Summary} % Just changes the name from "abstract" to "summary"
+\renewcommand\abstractname{Summary} % "Abstract" -> "Summary", the header lies
 \begin{abstract}
-    \singlespacing
- This short section at the top should be an executive summary of the rest of the document, something like an abstract. It should be very short (one paragraph at most) and extremely concise, covering the proposal at a very high level. It may be appropriate to put sponsor acknowledgments here if they're needed. \textbf{\textit{This section might not be needed!}}
+This short section at the top should be an executive summary of the rest of the document, something like an abstract. It should be very short (one paragraph at most) and extremely concise, covering the proposal at a very high level. It may be appropriate to put sponsor acknowledgments here if they're needed. \textbf{\textit{This section might not be needed!}}
 \end{abstract}
 
 \tableofcontents
@@ -49,13 +42,14 @@ The background section should cover the current state of affairs in Israel and s
 \subsection{Electric cars \& vehicle-to-grid charging}
 Details on the current state of electric cars in Israel (esp. Eilat), what vehicle-to-grid charging is, etc. It might be a good idea to give some background on the technical details of vehicle-to-grid charging in particular, as long as it's simple enough. Information about Israel's solar plans might be good to put here.
 
-\subsection{Automotive industry}
+\subsection{Existing economy}
 Information about the current makeup of Israel's automotive industry (if they have one) and peripheral industries such as car repair or manufacturing. A discussion of the usage of the costs of oil imports might also be relevant.
 
-\subsection{Travel habits}
+\subsection{Transportation}
 This should be the social effects situation, but since we haven't conducted any research on what consumers in Israel think of electric cars, we can't call it that. Basically this should cover the travel habits of modern Israeli citizens, esp. in Eilat. For example, how often do they drive? What's the average length of a trip? How much does the average person spend on gas?
 
-\subsection{Oil imports}
+\subsection{Oil imports \& Israeli independence}
+
 A discussion of the extremely complicated relations between Israel and its neighbors could be useful. We should discuss where Israel gets its oil from in particular, and what kind of effect that has on their relations with other countries.
 
 \newpage
@@ -82,7 +76,7 @@ This section is here to demonstrate how citations and bibliographies work in Ove
 
 \cite{Cheslow2011BetterCountry, Zhu2015DistributedGrid, Bennett2015EconomicGrid, Shinde2018ElectricInfrastructure, Ustun2015ImpactSystems, Ustun2015ImpactSystems, Lu2015IntroductionPEVs, OraCorenIsraelLane, Larkin2008IsraelsDependence, IsraeliMinistryofEnergyIsraelsEconomy, Leskarac2015PEVOn, Rahman2015PowerEVs, Rahman2015PowerEVs, Mahmud2015PowerEV, Mullan2012TheConcept}
 
-% Bibliography -- all automatically managed in APA style
+% Bibliography -- all automatically managed in APA style, on a new page
 \newpage
 \bibliographystyle{apacite}
 \bibliography{refs}
