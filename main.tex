@@ -1,17 +1,19 @@
-\documentclass{article}                         % Make it an article
+\documentclass{report}                         % Make it a report 
 \usepackage{indentfirst}                       % All paragraphs indented
 \usepackage{setspace}                           % For 1.5 spacing
 \usepackage[hidelinks]{hyperref}      % Make table of contents clickable
-\usepackage[margin=1.15in]{geometry} % 1 inch margin
+\usepackage[margin=0.75in]{geometry} % 1 inch margin
 \usepackage[english]{babel}                     % For "fancy" quotes
 \usepackage[autostyle, english=american]{csquotes} % Same
 \usepackage{apacite}                            % Use APA citations
 \usepackage{etoolbox}                           % Misc
+\usepackage{titlesec}
+\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge} % Make headers reasonable again 
+\titlespacing*{\chapter}{0pt}{-30pt}{0pt}
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}{0pt}{0pt}{-5pt}
 \MakeOuterQuote{"}                              % For fancy quotes
-% Turn off URLs in citations. Don't delete this in case we need it again.
-% https://tex.stackexchange.com/questions/425392/how-remove-links-from-apacite
-%\renewenvironment{APACrefURL}[1][]{}{}
-%\AtBeginEnvironment{APACrefURL}{\renewcommand{\url}[1]{}}
+
 
 \title{Israel IQP Project Proposal}
 \author{Evan Goldstein, Valeria Kopper, Christopher Myers, Zachary Zlotnick}
@@ -33,24 +35,50 @@ This short section at the top should be an executive summary of the rest of the 
 % Actual content begins here!
 \doublespacing
 
-\section{Introduction}
-\textit{Not part of this submission.}
+\chapter{Introduction}
+
+
+
+\begin{itemize}
+    \item Assess the technological viability of electric vehicles with V2G charging
+    \item Investigate the social acceptance of electric vehicles in Eilat, Israel
+    \item Determine whether the plan to go 90\% EV by 2040 is realistic
+\end{itemize}
+
+
+
+1. Modern Eilat relies heavily on oil for intra- and inter-city transport, namely through gasoline powered cars and buses. Almost 70\% of Israeli citizens drive to work with another 18\% taking buses, so in a city with a population of almost 50,000, this equates to thousands of car trips per day and an 30\% increase in commute times over the past decade \cite{Dori2018IsraeliRoads}, meaning even more oil usage. The environmental impacts of oil usage are well known, but in Israel's case oil usage leads to unique diplomatic problems, with over 99\% of their oil imported from its Arab neighbors \cite{Engber2006WhereOil}. 
+
+2. 
+
+3.
+
+4.
+
+5. The goal of this project is to assess the viability of Eilat's goal to have 90\% electric vehicles by 2040 with V2G charging, and develop a roadmap for its implementation in order to aid the city of Eilat in switching to electric vehicles by 2040.
+
 
 \newpage
-\section{Background}
-\subsection{Electric vehicles, the smart grid, \& vehicle-to-grid charging}
+\chapter{Background}
+\textit{Need an introduction here!}
 
+\section{Electric vehicles \& solar power}
+\subsection{Electric vehicles}
 Electric vehicles (EVs) are an energy efficient alternative to traditional combustion-powered vehicles, relying on built-in batteries and motors to store energy and move the vehicle. Traditional vehicles produce carbon dioxide (CO$^2$) emissions from burning gasoline, but convert only 10-15\% of the energy in the gasoline into energy to move the vehicle. In comparison, a hybrid vehicle --- combining combustion and electric technology --- can yield 30-40\% efficiency \cite{Zhu2015DistributedGrid}, with the remaining energy similarly wasted. Pure EVs operate on much simpler principles, saving energy and reducing carbon emissions.
 
-Modern EVs are currently limited in both battery capacity and range, presenting a usage-awareness challenge to consumers who wish to switch. On the low end of the scale, cars can have as little as 18.8 kWh in energy storage with a range of only 100 miles, while higher end models can store up to 53 kWh for a range of 220 miles \cite{Ustun2015ImpactSystems}. For reference, a typical household might use 10,000 kWh or more in a year. Depending on travel habits and local availability of charging stations, this may limit adoption. EVs also increasingly require dedicated, high-power charging systems, namely "fast chargers" requiring up to 70 kW (reference: A normal laptop might draw 60-70 W while charging) to charge one vehicle \cite{Ustun2015ImpactSystems}. If many of these vehicles were in use in one area, the load on the local electric grid during peak hours could be enormous.
+Modern EVs are currently limited in both battery capacity and range, presenting a usage-awareness challenge to consumers who wish to switch. On the low end of the scale, cars can have as little as 18.8 kWh in energy storage with a range of only 100 miles, while higher end models can store up to 53 kWh for a range of 220 miles \cite{Ustun2015ImpactSystems} --- for reference, Israelis use 6,893 kWh per capita as of 2018 \cite{2018Key2018}. Depending on travel habits and local availability of charging stations, this may limit adoption. EVs also increasingly require dedicated, high-power charging systems, namely "fast chargers" requiring up to 70 kW (reference: A normal laptop might draw 60-70 W while charging) to charge one vehicle in 30 minutes \cite{Ustun2015ImpactSystems}. If many of these chargers were in use in one area, the load on the local electric grid during peak hours could be enormous.
 
-To help satisfy energy requirements and reduce carbon emissions, a number of renewable energy options are available to Eilat and Israel as a whole, most notably solar power. Solar power requires large amounts of exposure to the sun (which Israel has plenty of) and huge swathes of land to generate power effectively (modern photovoltaic solar panels are only 10-17\% efficient \cite{Zhu2015DistributedGrid}), but solar panels can also be mounted as rooftop installations. In a best-case scenario with solar panels on every roof, up to 32\% of Israel's energy requirements could be satisfied by solar, while in a more realistic scenario of solar panels on only large roofs ($>$800m$^2$) up to 7\% could be satisfied \cite{Vardimon2011AssessmentIsrael}, and this is only for rooftop deployments. Far more power could be generated by dedicated solar farms, which Israelis also support \cite{Dipersio2018PhotovoltaicAcceptance}. Unfortunately, the volatile nature of solar energy (dependent on weather and time of day) can cause problems with satisfying power demand \cite{Lu2015IntroductionPEVs} and the deployment of dedicated solar farms would likely require significant upgrades to the existing power grid \cite{Vardimon2011AssessmentIsrael} in both capacity and technology. Combined with the high energy demands imposed by a fleet of electric vehicles, a desperately-needed increase in solar power and 90\% EVs (as per Eilat's goal) could reasonably be expected to have a devastating effect on the existing grid.
+\subsection{Solar energy}
+To help satisfy energy requirements and reduce carbon emissions, a number of renewable energy options are available to Eilat and Israel as a whole, most notably solar power. Solar power requires large amounts of exposure to the sun and huge swathes of land to generate power effectively. Modern photovoltaic solar panels are only 10-17\% efficient \cite{Zhu2015DistributedGrid}), generating 150-200 watts per square meter, so supplying Israel with its average demand of 6.7 gigawatts would require 33-45 km$^2$ of contiguous solar panels.
 
-To address both these problems and other current electric demand problems, such as how to accommodate the rise in demand towards the evenings (peak time) the concept of a \textit{smart grid} has been proposed. Briefly, a smart grid is a power grid where power production, storage, and transmission is regulated intelligently by computers in an on-demand fashion. These usually involve "microgrids" that contain a number of "loads" (something that draws power, like a house) and local sources of power, such as batteries or rooftop solar panels \cite{Lu2015IntroductionPEVs}. One proposed use of smart grids is to connect EVs when they're not in use, charging their batteries when power is more readily available and discharging during peak time \cite{Mahmud2015PowerEV} or times of exceptional demand. Ideally, this would help relieve stress on power generators and reduce waste from long-range power transmission \cite{Zhu2015DistributedGrid}. Together the connected EVs would serve as a distributed battery; these concepts are the core of vehicle-to-grid (V2G) charging.
+Unfortunately, the volatile nature of solar energy (affected by weather but entirely dependent on time of day, solar panels can't supply power during the night) can cause problems with satisfying power demand \cite{Lu2015IntroductionPEVs} and the deployment of dedicated solar farms would likely require significant upgrades to the existing power grid \cite{Vardimon2011AssessmentIsrael} in both capacity and technology. Combined with the high energy demands imposed by a fleet of electric vehicles, a desperately-needed increase in solar power and 90\% EVs (as per Eilat's goal) could be expected to require significant changes to Eilat's electrical grid.
 
-Unfortunately, the technology needed has not been fully investigated and the transition phase may be difficult. Consumers may be reluctant to switch to EVs due to their range or availability of charging stations \cite{Zhu2015DistributedGrid}. This is a cyclical problem since fewer consumers transitioning implies fewer charging stations, since there would be little incentive to build many stations for a small fleet of EVs. Universal standards for charging cars and the complicated control circuity involved in two-way power flow may also need to be developed \cite{Ustun2015ImpactSystems, Yeshayahou2011IsraelCharging}, not to mention the actual infrastructure and control systems underpinning smart grids. A smart grid and V2G charging in Eilat may also need adapting to their local environment, depending on factors such as Israeli travel habits (a car can only serve as a battery for the grid if it's not in use, for instance), frequency of use, or Eilat citizens' individual willingness and financial readiness to switch to EVs.
+\subsection{V2G \& smart grids}
+To address both these problems and demand problems like accomodating the rise in demand towards the evenings (peak time), engineers have proposed the concept of a \textit{smart grid}. Briefly, a smart grid is a power grid where power production, storage, and transmission is regulated intelligently by computers in an on-demand fashion. These usually involve "microgrids" that contain a number of "loads" (something that draws power, like a house) and local sources of power, such as batteries or rooftop solar panels \cite{Lu2015IntroductionPEVs}. One proposed use of smart grids is to connect EVs when they're not in use, charging their batteries when power is more readily available and discharging during peak time \cite{Mahmud2015PowerEV} or times of exceptional demand. Ideally, this would help relieve stress on power generators and reduce waste from long-range power transmission \cite{Zhu2015DistributedGrid}. Together the connected EVs would serve as a distributed battery; these concepts are the core of vehicle-to-grid (V2G) charging. It's important to understand that these concepts are inseparable --- a V2G charging station \textit{is} a smart grid component, implementing V2G without needed upgrades to the grid would be ineffective or difficult to manage.
 
-\subsection{Existing automotive industry}
+Unfortunately, the technology needed has not been fully investigated and the transition phase may be difficult. Consumers may be reluctant to switch to EVs due to their range or availability of charging stations \cite{Zhu2015DistributedGrid}. This may be a cyclical problem since fewer consumers transitioning implies fewer charging stations, since there would be little incentive to build many stations for a small fleet of EVs. Universal standards for charging cars and the complicated control circuity involved in two-way power flow may also need to be developed \cite{Ustun2015ImpactSystems, Yeshayahou2011IsraelCharging}, not to mention the actual infrastructure and control systems underpinning smart grids. A smart grid and V2G charging in Eilat may also need adapting to their local environment, depending on factors such as Israeli travel habits (a car can only serve as a battery for the grid if it's not in use, for instance), frequency of use, or Eilat citizens' individual willingness and financial readiness to switch to EVs.
+
+\section{Existing automotive industry}
 Israel is not traditionally considered a strong player within the global automotive industry; however, they are proving to be a country on the rise in this regard. As a nation, Israel is known for the environment it has provided for technology start-ups to thrive. That in mind, many global brands are deciding to invest in the "high-end automotive technology sector." Some of these global brands include Intel, looking to apply its software automation in Jerusalem; Volkswagen AG, trying to popularize the ride hailing service called "Gett,"; even BMW AG, who made a large investment in a transit app called "Moovit" \cite{Coutinho2018IsraelIndustry}. 
 
 With regard to the traditional facets of the automotive industry, the Israeli market also has companies specializing in Tier 1, 2, and Tier 3 supply; Tier 1 supplying companies with components for final assembly as well as aftermarket spare parts, Tier 2 supplying Tier 1 with sub-assembly components, and Tier 3 supplying simple engineered materials for Tier 2 suppliers, respectively. As of 2015, Israel has over 60 companies working in Tier 1 aftermarket supply creating spare parts and accessories such as batteries, ventilation, gears and valves. Israel also has over 50 companies that supply sub-assembly components to original equipment manufacturers (OEMs) \cite{MinistryofEconomyandIndustryStateofIsraelTheIsrael}. These companies may begin to shift over time as Israel seeks alternatives to traditional, inefficient cars, and moves toward lighter, smarter, and technologically savvy electric vehicles.
@@ -61,7 +89,7 @@ Responding to this fundamental shift in the way the world is viewing transportat
 
 Overall, the Israeli automotive industry is a developing one. This is not to say that it is underdeveloped, but that it has focused its lens on emerging technologies and brand new global needs. International companies have focused their attention to Israel in search of new viable automobile-related technologies. In addition to the cutting-edge technologies that have sprouted in Israel, they also have made efforts to vertically integrate many of them - ensuring that there is support from initial design to final production \cite{MinistryofEconomyandIndustryStateofIsraelTheIsrael}. Israel's location enables them to get the best of both commercial worlds; they can easily trade with Asia and Europe.
 
-\subsection{Transportation}
+\section{Transportation}
 Eilat is a relatively small city with a population of 47,800. Within the city center, you can walk almost everywhere. There is only one bus company, Egged. \cite{TransportationEilat} "Get Taxi", an Uber-like service, is also available. 
 
 In March 2018, a report published by the Bank of Israel found that commute times in the country have increased by 30\% in the last decade. This is likely because private and commercial vehicles account for how 69\% of Israelis get to work nationwide. Following that, 18\% take a bus. Tel Aviv and Haifa are very close to the national numbers, but in Jerusalem, the statistic changes drastically, to 54\% car and 32\% bus \cite{Dori2018IsraeliRoads}. By comparison, in European cities like Barcelona and Brussels public transportation accounted for 40\% of all commuting and in Paris, 70\%. The report found that those who do take the bus to work do so not because it is convenient or efficient, but because they cannot afford to own a car, and therefore have no choice. The report came after the International Monetary Fund said Israel’s transportation infrastructure was insufficient and was threatening to be a drag on economic growth. 
@@ -72,7 +100,7 @@ Luxury car ownership has also increased rapidly, doubling in recent years \cite{
 
 %Israel does not have a particularly thriving car culture scene. This is largely limited by the government. Speed limits are low, and every single modification to a vehicle, even changing the wheel size, requires special permission. New car purchases are taxed at 83\%, making the purchase of a car very expensive.
 
-\subsection{Oil imports \& Israeli independence}
+\section{Oil imports \& Israeli independence}
 The modern world has a developed a deep reliance on oil, and the State of Israel is no exception. Oil is required by many daily activities. While many have attempted to decrease this strong dependence, such as through investment in renewable energy production, there has been little success. For some countries this means large oil production and exports, many times being the driving force of their economy. For other countries, this implies being tied and subject to the countries responsible for sourcing their oil imports. Among the former category fall many middle eastern nations. Israel, however, produces incredibly small quantities of oil, as little as only a couple thousand barrels of oil a day \cite{Engber2006WhereOil}, forcing the nation to heavily rely on oil imports. Such a small oil production does not allow Israel to sustain more than 1\% of its oil needs, which means it imports over 99\% of its oil \cite{Engber2006WhereOil}. Many of these imports originate from its neighboring countries; countries with whom Israel has a long and complicated history of tense relationships. This generates an undesired and convoluted vulnerability for Israel.
     
 Israel's oil import distribution among exporting countries is undisclosed because, as Israel's minister of national infrastructures (in 2004) stated, "Israel's situation is complicated. We don't have diplomatic relations with most of the countries from which we import oil." \cite{Engber2006WhereOil} Over the years Israel has imported oil from a wide range of countries, including but not limited to, Angola, Colombia, Mexico, Egypt, and Norway \cite{Engber2006WhereOil}. More recently these imports have shifted towards a large majority originating from Russia and Kazakhstan \cite{Engber2006WhereOil}. 
@@ -81,16 +109,17 @@ Since its establishment, the State of Israel has continuously sought oil resourc
 
 Ideally, Israel can decrease its dependence on other nations by decreasing its oil consumption. Decreasing energy consumption should be a global goal, but at this point in time the focus should on decreasing oil consumption specifically. On the other hand, focusing on the development of energy consumption in future years progressing towards the use of renewable energy instead of oil consumption would yield great benefits in terms of environmental, social and political aspects. This can be achieved by focusing on renewable energy production and shifting towards electric machines, such as electric vehicles, versus oil-run machines. Israel has the opportunity to expand upon its untapped potential for renewable energy production, especially solar polar, which would grant Israel an increased independence from its oil imports and undesired ties to neighboring countries. 
 
-\subsection{Summary}
+\section{Summary}
 
 Overall, Israel stands to gain much by decreasing its oil reliance, increasing solar power production, and switching to electric vehicles. In the process it would gain a more reliable power system, greener vehicles, and reduced political difficulties involved with importing oil from its less-than-friendly neighbors. However, the process of making the switch over the next 20 years can be expected to be complicated, with numerous technological developments required, in-depth study of the social effects and social feasibility of electric vehicles, and possibly mitigation to avoid threatening the Israeli automotive industry. Additional research and investigation is required to determine the feasibility and implications of Eilat's plan to switch to 90\% electric vehicles by 2040.\
 
 \newpage
-\section{Methods}
+\chapter{Methods}
 \textit{Not part of this submission.}
 
 % Bibliography -- automatically managed in APA style, on a new page
 \newpage
+\bigskip
 \bibliographystyle{apacite}
 \bibliography{refs}
 
